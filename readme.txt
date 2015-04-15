@@ -43,6 +43,8 @@ Primarily, the first version includes following short codes:
 * Next Post
 * Previous Post
 
+See User's Guide at http://wpscf.com/users-guide/
+
 == Installation ==
 
 Shortcode Factory is easy to install.
