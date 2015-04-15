@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
 function scf_load_ui(data) {
 	jQuery.get(scf_ajax.url, data, function(resp){
 		jQuery.colorbox({
-			title: scf_ajax.tag,
+			title: scf_ajax.tag+scf_ajax.help,
 			className: scf_ajax.i+"cbox",
 			html: resp,
 			open: true,

@@ -19,7 +19,8 @@ function scf_enqueue_scripts() {
 		array(
 			'url' => admin_url('admin-ajax.php' ),
 			'tag' => SCF_FULLNAME,
-			'i' => SCF_INITIALS
+			'i' => SCF_INITIALS,
+			'help' => ' - <a href="http://wpscf.com/users-guide/" target="_blank">User Guide</a>'
 		)
 	);
 }
