@@ -68,6 +68,9 @@ Although, we have tested it in very much detail. But technically, it shouldn’t
 
 == Changelog ==
 
+= 1.1 =
+* Added user guide link in the short code UI, for an easy access to quick reference.
+
 = 1.0 =
 * First release, with basic Posts/Pages short codes
 
