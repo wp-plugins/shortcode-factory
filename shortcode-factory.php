@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Shortcode Factory
-Plugin URI: http://wordpress.org/extend/plugins/shortcode-factory
+Plugin URI: http://wordpress.org/plugins/shortcode-factory
 Description: Create short codes for almost everything in the Word Press and use in Pages, Posts or anywhere.
 Version: 1.0
 Author: WPMadeasy
