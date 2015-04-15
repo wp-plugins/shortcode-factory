@@ -1,0 +1,111 @@
+#scf_InsertShortcode img {
+	width: 20px;
+}
+
+.scf_shortcodes {
+	list-style: none;
+}
+
+.scf_shortcodes li {
+	width: 30%;
+	height: 50px;
+	margin: 5px;
+	background-color: #eee;
+	text-align: center;
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+.scf_shortcode {
+	text-decoration: none;
+	color: #999;
+	float: left;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	line-height: 50px;
+}
+
+.scf_shortcode:hover {
+	background-color: #999;
+	color: white;
+}
+
+.scf_shortcode span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.scf-shortcode-wrapper {
+    padding: 10px;
+}
+
+.scf-shortcode-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.scf-shortcode-desc {}
+
+.scf-controls-group {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.scf-control {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.scf-control-label {
+    float: left;
+    width: 100%;
+    font-weight: bold;
+}
+
+.scf-control-text {
+    width: 100%;
+}
+
+.scf-control-select {
+    width: 100%;
+}
+
+.scf-control.separator {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.scf-control-button {
+	cursor: pointer;
+}
+
+.scf-right {
+    float: right;
+}
+
+.optional {
+    font-weight: 100;
+    font-size: 11px;
+    vertical-align: bottom;
+}
+
+.required {
+    font-size: 11px;
+    color: red;
+}
+
+.notes {
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.highlight-error {
+	border: 1px solid red !important;
+	background-color: #FCC0CD !important;
+}
