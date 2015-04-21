@@ -5,7 +5,7 @@
  * All constants and fixed resources
  */
 
-define('SCF_VERSION', '1.0');
+define('SCF_VERSION', '1.1.1');
 define('SCF_FULLNAME', 'Shortcode Factory');
 define('SCF_SHORTNAME', 'scfactory');
 define('SCF_INITIALS', 'scf_');
