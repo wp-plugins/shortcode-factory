@@ -3,8 +3,8 @@ Contributors: wpmadeasy
 Donate link: http://wpscf.com/
 Tags: short codes, posts, pages, utility
 Requires at least: 3.5
-Tested up to: 4.1.1
-Stable tag: 1.0
+Tested up to: 4.2
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,13 @@ Although, we have tested it in very much detail. But technically, it shouldn’t
 4. Works as expected, see it in action on front website
 
 == Changelog ==
+
+= 1.1.1 =
+* add_query_arg() vulnerability fix for potential XSS attack vectors
+* Compatibility testing up to Word Press 4.2
+
+= 1.1 =
+* Added user guide link in the short code UI, for an easy access to quick reference.
 
 = 1.0 =
 * First release, with basic Posts/Pages short codes
