@@ -31,17 +31,17 @@ Primarily, the first version includes following short codes:
 * Post Title
 * Post Content
 * Post Excerpt
-* Post Meta
+* Post Meta (Publish Date, Modified Date, Comments Feed Link)
 * Post Permalink
-* Post Author
-* Post Featured Image
+* Post Author (ID, Display Name, First Name, Last Name, Biography, Jabber, AIM, YIM, Google Plus, Twitter, Login Name, Password, Email, URL, Registration Date/Time, Account Status, Activation Key, Roles, Access Level)
+* Post Featured Image (ID, URL, HTML Image / Thumbnail, Medium, Full)
 * Post Custom Field
-* Post Categories
-* Post Tags
-* Post Custom Taxonomies
-* Post Attachments
-* Next Post
-* Previous Post
+* Post Categories (Names or Links / with Separator)
+* Post Tags (Names or Links / with Separator)
+* Post Custom Taxonomies (Names or Links / with Separator)
+* Post Attachments (Custom Output / with Separator)
+* Next Post (Custom Link Label, Position and Output Format)
+* Previous Post (Custom Link Label, Position and Output Format)
 
 See User's Guide at http://wpscf.com/users-guide/
 
