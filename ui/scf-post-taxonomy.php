@@ -1,6 +1,6 @@
 <div class="scf-shortcode-wrapper">
 	<h2 class="scf-shortcode-title" data-shortcode="scf-post-taxonomy">[scf-post-taxonomy]</h2>
-	<p class="scf-shortcode-desc"><?=__('Outputs tags of the post. If ID or Slug is provided, outputs the tags of that particular post.', 'shortcode-factory')?></p>
+	<p class="scf-shortcode-desc"><?=__('Outputs custom taxonomies of the post. If ID or Slug is provided, outputs the tags of that particular post.', 'shortcode-factory')?></p>
 	<div class="scf-controls-group">
 		<div class="scf-control">
 			<label for="scf-control-id" class="scf-control-label"><?=__('ID', 'shortcode-factory')?> <span class="optional scf-right"><?=__('(optional)', 'shortcode-factory')?></span></label>
