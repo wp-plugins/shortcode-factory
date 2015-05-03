@@ -11,11 +11,6 @@
 
 	foreach($scfOptionPages as $pageTitle => $pageId) {
 		$titles .= "<li><a href='#scf-page-{$pageId}'>{$pageTitle}</a></li>";
-
-		$contents .= "<div id='scf-page-{$pageId}'>";
-		$contents .= @get_include_contents(SCF_UI."/options/".$pageId.".php");
-		$contents .= "</div>";
-
 	}
 ?>
 <div class="wrap">
@@ -29,7 +24,16 @@
 			<?=$titles?>
 		</ul>
 
-		<?=$contents?>
+		<?php
+			foreach($scfOptionPages as $pageTitle => $pageId) {
+				echo "<div id='scf-page-{$pageId}'>";
+
+				include(SCF_UI."/options/".$pageId.".php");
+
+				echo "</div>";
+
+			}
+		?>
 	</div>
 </div>
 
