@@ -3,8 +3,8 @@ Contributors: wpmadeasy
 Donate link: http://wpscf.com/
 Tags: short codes, posts, pages, utility
 Requires at least: 3.5
-Tested up to: 4.2
-Stable tag: 1.1.1
+Tested up to: 4.2.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,14 @@ Although, we have tested it in very much detail. But technically, it shouldn’t
 
 == Changelog ==
 
+= 1.2 =
+* Built-in pages for plugin Settings, Help and Support
+* Dedicated menu option for plugin, in Word Press Admin left side menu
+* Settings Page: Control plugin icon's visibility
+* Help Page: Quick reference to available short codes, and link to online User's Guide
+* Support Page: Links to plugin support, questions, change log and previous versions
+* Some performance improvements
+
 = 1.1.1 =
 * add_query_arg() vulnerability fix for potential XSS attack vectors
 * Compatibility testing up to Word Press 4.2
@@ -82,3 +90,6 @@ Although, we have tested it in very much detail. But technically, it shouldn’t
 
 = 1.0 =
 This is the first release and does not require an upgrade.
+
+= 1.2 =
+Upgrade to version 1.2 for some useful stuff built-in to the plugin's option pages. See change log for more details.
