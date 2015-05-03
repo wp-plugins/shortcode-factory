@@ -13,7 +13,8 @@
 		$titles .= "<li><a href='#scf-page-{$pageId}'>{$pageTitle}</a></li>";
 
 		$contents .= "<div id='scf-page-{$pageId}'>";
-		$contents .= @get_include_contents(SCF_UI."/options/".$pageId.".php");
+		//$contents .= @get_include_contents(SCF_UI."/options/".$pageId.".php");
+		$contents .= "Some stuff";
 		$contents .= "</div>";
 
 	}
