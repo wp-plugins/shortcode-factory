@@ -17,8 +17,8 @@
 			<td>
 				<select name="options[general][button_appearance]">
 					<option value="">Default (icon and text)</option>
-					<option value="icon" <?=($button_appearance=="icon")?"selected":""?>>Icon only</option>
-					<option value="text" <?=($button_appearance=="text")?"selected":""?>>Text only</option>
+					<option value="icon" <?php echo ($button_appearance=="icon")?"selected":""; ?>>Icon only</option>
+					<option value="text" <?php echo ($button_appearance=="text")?"selected":""; ?>>Text only</option>
 				</select>
 				<span class="notes">Button appearance on post editor.</span>
 			</td>
