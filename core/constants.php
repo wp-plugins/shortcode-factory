@@ -5,11 +5,12 @@
  * All constants and fixed resources
  */
 
-define('SCF_VERSION', '1.1.1');
+define('SCF_VERSION', '1.2');
 define('SCF_FULLNAME', 'Shortcode Factory');
 define('SCF_SHORTNAME', 'scfactory');
 define('SCF_INITIALS', 'scf_');
 define('SCF_TEXTDOMAIN', 'shortcode-factory');
+define('SCF_DESCRIPTION', 'Create short codes for almost everything in the Word Press and use in Pages, Posts or anywhere.');
 
 // Paths
 define('SCF_FOLDER', basename(SCF_PATH));
