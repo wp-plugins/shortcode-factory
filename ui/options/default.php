@@ -14,7 +14,8 @@
 
 		$contents .= "<div id='scf-page-{$pageId}'>";
 		//$contents .= @get_include_contents(SCF_UI."/options/".$pageId.".php");
-		$contents .= "Some stuff";
+		//$contents .= "Some stuff";
+		$contents .= file_get_contents(SCF_UI."/options/".$pageId.".php");
 		$contents .= "</div>";
 
 	}
