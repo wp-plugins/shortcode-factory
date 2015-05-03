@@ -27,9 +27,7 @@
 		<?php
 			foreach($scfOptionPages as $pageTitle => $pageId) {
 				echo "<div id='scf-page-{$pageId}'>";
-				//$contents .= @get_include_contents(SCF_UI."/options/".$pageId.".php");
-				//$contents .= "Some stuff";
-				//$contents .= file_get_contents(SCF_UI."/options/".$pageId.".php");
+
 				include(SCF_UI."/options/".$pageId.".php");
 
 				echo "</div>";
