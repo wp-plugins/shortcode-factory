@@ -39,6 +39,13 @@
 
 <div class="scf-cell scf-1-4 scf-pad-10 scf-promo">
 	<div id="scf-promo-content">
-		<?php echo file_get_contents("http://wpmadeasy.com/promo/"); ?>
+		<h5 style="text-align: center; border-bottom: 1px dashed black;">More Products by WPME</h5>
+		<h3 style="text-align: center;"><a href="https://wordpress.org/plugins/wpme-google-maps/" target="_blank">WPME Google Maps</a></h3>
+		<p style="text-align: center;">WordPress Plugin</p>
+		<p><a href="https://wordpress.org/plugins/wpme-google-maps/" target="_blank" rel="Wordpress Plugins"><img class=" wp-image-70 size-full aligncenter" src="http://wpmadeasy.com/wp-content/uploads/2015/04/screenshot-1-e1430486372994.jpg" alt="screenshot-1" width="252" height="432" /></a></p>
+		<p style="text-align: center;">Plot your address on a Google Map, with easy to use interface and simple short code.</p>
+		<h4 style="text-align: center;"><a href="https://wordpress.org/plugins/wpme-google-maps/" target="_blank">Download from WordPress</a></h4>
+		<p style="text-align: center;">For more information<br />
+			<a href="http://wpmadeasy.com/google-maps/" target="_blank">http://wpmadeasy.com/google-maps/</a></p>
 	</div>
 </div>
