@@ -40,6 +40,9 @@ $scf_builtin_shortcodes['scf-post-next'] = array('scf-post-next', 'scf_shortcode
 $scf_builtin_shortcodes['scf-post-prev'] = array('scf-post-prev', 'scf_shortcode_post_prev', __('Previous Post', 'shortcode-factory'), __('Prints link to the previous post.', 'shortcode-factory'), true);
 $scf_builtin_shortcodes['scf-post-attachments'] = array('scf-post-attachments', 'scf_shortcode_post_attachments', __('Post Attachments', 'shortcode-factory'), __('Prints post attachments.', 'shortcode-factory'), true);
 
+// Roles/Capabilities/User Permissions
+$scf_builtin_shortcodes['scf-allow'] = array('scf-allow', 'scf_shortcode_allow', __('Allow', 'shortcode-factory'), __('Allows content to specified roles.', 'shortcode-factory'), true);
+
 add_action('init', 'scf_register_builtin_shortcodes');
 
 /* Shortcode Callbacks */
@@ -509,4 +512,27 @@ function scf_shortcode_post_attachments($atts) {
 	} else {
 		return scf_get_post(get_the_ID(), "attachment", $params);
 	}
+}
+
+/**
+ * [scf-allow] returns the encapsulated content for specified roles only.
+ *
+ * This short code requires a closing. i.e. [scf-allow {params}]...[/scf-allow]
+ *
+ */
+function scf_shortcode_allow($atts, $content) {
+	extract(
+		shortcode_atts(
+			array(
+				"role" => ""	// comma separated list of roles
+			),
+			$atts, "scf_shortcode_allow"
+		)
+	);
+
+	$params = array(
+		"role" => $role
+	);
+
+	return scf_allow($role, $content);
 }
