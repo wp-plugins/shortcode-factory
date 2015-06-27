@@ -32,3 +32,5 @@
 <p>Outputs the link to the previous post <span><em>(Custom Link Label, Position and Output Format)</em></span>.</p>
 <h4><a href="http://wpscf.com/users-guide/scf-post-attachments/" target="_blank">SCF-POST-ATTACHMENTS</a></h4>
 <p>Outputs attachments of the post<em> <span>(Custom Output / with Separator)</span></em>. If ID or Slug is provided, outputs the attachments of that particular post.</p>
+<h4><a href="http://wpscf.com/users-guide/scf-allow/" target="_blank">SCF-ALLOW</a></h4>
+<p>Displays selected content for specified role(s) only. If no role is specified, simply returns the content.</p>

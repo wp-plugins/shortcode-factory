@@ -1,20 +1,9 @@
 <div class="scf-cell scf-3-4 scf-pad-10">
 	<p>Shortcode Factory offers a wide range of ready-to-use short codes for your daily WordPress operations. There are plenty of short codes available at hand. We have tried to bring most common to most wanted features of WordPress, to these short codes.</p>
 
-	<p>Generally there are following types of short codes available:</p>
+	<p>See "Help" tab for a list of all short codes.</p>
 
-	<ul>
-		<li>Posts and Pages</li>
-		<li>Users and Authors</li>
-		<li>Layout and Design</li>
-		<li>Utilities</li>
-		<li>3rd Party Integrations</li>
-		<li>and Building Your Own Short Codes</li>
-	</ul>
-
-	<p>We have divided these short codes among different releases. Please see change log for details.</p>
-
-	<p>Primarily, the first version includes following short codes:</p>
+	<p>Short codes are available for following purposes:</p>
 
 	<ul>
 		<li>Post ID</li>
@@ -32,6 +21,7 @@
 		<li>Post Attachments (Custom Output / with Separator)</li>
 		<li>Next Post (Custom Link Label, Position and Output Format)</li>
 		<li>Previous Post (Custom Link Label, Position and Output Format)</li>
+		<li>User Role Based Content Display</li>
 	</ul>
 
 	<p>See User's Guide at <a href="http://wpscf.com/users-guide/" target="_blank">http://wpscf.com/users-guide/</a></p>

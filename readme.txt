@@ -4,7 +4,7 @@ Donate link: http://wpscf.com/
 Tags: short codes, posts, pages, utility
 Requires at least: 3.5
 Tested up to: 4.2.1
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,20 +12,15 @@ Create short codes for almost everything in the Word Press and use in Pages, Pos
 
 == Description ==
 
+*** WHAT's NEW ***
+
+<strong>[scf-allow]</strong> Displays selected content for specified role(s) only. If no role is specified, simply returns the content.
+
+******************
+
 Shortcode Factory offers a wide range of ready-to-use short codes for your daily WordPress operations. There are plenty of short codes available at hand. We have tried to bring most common to most wanted features of WordPress, to these short codes.
 
-Generally there are following types of short codes available:
-
-* Posts and Pages
-* Users and Authors
-* Layout and Design
-* Utilities
-* 3rd Party Integrations
-* and Building Your Own Short Codes
-
-We have divided these short codes among different releases. Please see change log for details.
-
-Primarily, the first version includes following short codes:
+Short codes are available for following purposes:
 
 * Post ID
 * Post Title
@@ -42,6 +37,7 @@ Primarily, the first version includes following short codes:
 * Post Attachments (Custom Output / with Separator)
 * Next Post (Custom Link Label, Position and Output Format)
 * Previous Post (Custom Link Label, Position and Output Format)
+* User Role Based Content Display
 
 See User's Guide at http://wpscf.com/users-guide/
 
@@ -67,6 +63,10 @@ Although, we have tested it in very much detail. But technically, it shouldn’t
 4. Works as expected, see it in action on front website
 
 == Changelog ==
+
+= 1.3 =
+* New short code [scf-allow] introduced to control the display of certain content in a post/page, based on User Role
+* Performance improvements
 
 = 1.2 =
 * Built-in pages for plugin Settings, Help and Support

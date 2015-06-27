@@ -182,3 +182,11 @@
 .scf-notice.scf-warning {
 	border-left-color: #d46f15;
 }
+
+.scf-control-chkbox {
+	float: left;
+	width: 100%;
+	display: block;
+	margin-top: 5px;
+	margin-left: 20px;
+}
