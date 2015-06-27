@@ -12,11 +12,9 @@ Create short codes for almost everything in the Word Press and use in Pages, Pos
 
 == Description ==
 
-*** WHAT's NEW ***
+<h4>WHAT's NEW</h4>
 
-<strong>[scf-allow]</strong> Displays selected content for specified role(s) only. If no role is specified, simply returns the content.
-
-******************
+* <strong>[scf-allow]</strong> Displays selected content for specified role(s) only. If no role is specified, simply returns the content.
 
 Shortcode Factory offers a wide range of ready-to-use short codes for your daily WordPress operations. There are plenty of short codes available at hand. We have tried to bring most common to most wanted features of WordPress, to these short codes.
 
@@ -54,6 +52,10 @@ Shortcode Factory is easy to install.
 = Does this plugin has a known conflict with Wordpress or other plugins? =
 
 Although, we have tested it in very much detail. But technically, it shouldn’t create a conflict, since it does not try to change anything in the Wordpress System.
+
+= What if I use another short code in [scf-allow]...[/scf-allow]? =
+
+[scf-allow] supports "short code within short code", so your other short codes in an [scf-allow]...[/scf-allow] block are rendered pretty fine.
 
 == Screenshots ==
 
