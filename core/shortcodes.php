@@ -40,6 +40,15 @@ $scf_builtin_shortcodes['scf-post-next'] = array('scf-post-next', 'scf_shortcode
 $scf_builtin_shortcodes['scf-post-prev'] = array('scf-post-prev', 'scf_shortcode_post_prev', __('Previous Post', 'shortcode-factory'), __('Prints link to the previous post.', 'shortcode-factory'), true);
 $scf_builtin_shortcodes['scf-post-attachments'] = array('scf-post-attachments', 'scf_shortcode_post_attachments', __('Post Attachments', 'shortcode-factory'), __('Prints post attachments.', 'shortcode-factory'), true);
 
+// Roles/Capabilities/User Permissions
+$scf_builtin_shortcodes['scf-allow'] = array('scf-allow', 'scf_shortcode_allow', __('Allow', 'shortcode-factory'), __('Allows content to specified roles.', 'shortcode-factory'), true);
+
+// Utility
+$scf_builtin_shortcodes['scf-login-form'] = array('scf-login-form', 'scf_login_form', __('Login Form', 'shortcode-factory'), __('Displays WordPress login form.', 'shortcode-factory'), false);
+$scf_builtin_shortcodes['scf-login-link'] = array('scf-login-link', 'scf_login_link', __('Login Link', 'shortcode-factory'), __('Displays a login link, or if a user is logged in, displays a logout link.', 'shortcode-factory'), false);
+$scf_builtin_shortcodes['scf-register-link'] = array('scf-register-link', 'scf_register_link', __('Register Link', 'shortcode-factory'), __('Displays either the "Site Admin" link if the user is logged in or "Register" link if the user is not logged in.', 'shortcode-factory'), false);
+
+
 add_action('init', 'scf_register_builtin_shortcodes');
 
 /* Shortcode Callbacks */
@@ -509,4 +518,51 @@ function scf_shortcode_post_attachments($atts) {
 	} else {
 		return scf_get_post(get_the_ID(), "attachment", $params);
 	}
+}
+
+/**
+ * [scf-allow] returns the encapsulated content for specified roles only.
+ *
+ * This short code requires a closing. i.e. [scf-allow {params}]...[/scf-allow]
+ *
+ */
+function scf_shortcode_allow($atts, $content) {
+	extract(
+		shortcode_atts(
+			array(
+				"role" => ""	// comma separated list of roles
+			),
+			$atts, "scf_shortcode_allow"
+		)
+	);
+
+	$params = array(
+		"role" => $role
+	);
+
+	return scf_allow($role, $content);
+}
+
+/**
+ * [scf-login-form] displays the WordPress login form.
+ *
+ */
+function scf_login_form() {
+	return wp_login_form(array('echo' => false));
+}
+
+/**
+ * [scf-login-link] Displays a login link, or if a user is logged in, displays a logout link.
+ *
+ */
+function scf_login_link() {
+	return wp_loginout(null, false);
+}
+
+/**
+ * [scf-register-link] Displays either the "Site Admin" link if the user is logged in or "Register" link if the user is not logged in.
+ *
+ */
+function scf_register_link() {
+	return wp_register('', '', false);
 }

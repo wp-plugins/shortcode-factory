@@ -207,3 +207,55 @@ function array_to_list($arr, $separator=", ") {
 
 	return $ret;
 }
+
+/**
+ * Get included content from files
+ *
+ * @param String $filename File to get contents from.
+ *
+ * @return File contents.
+ */
+function get_include_contents($filename) {
+	if (is_file($filename)) {
+		ob_start();
+		include $filename;
+		return ob_get_clean();
+	}
+	return false;
+}
+
+/**
+ * Returns content if current user has one of the supplied roles.
+ *
+ * If role attribute is set, the content is returned for those roles only.
+ * Otherwise, content is returned, regardless of roles.
+ *
+ * @param String $role Comma separated list of effective user roles
+ * @param String $content Content
+ *
+ * @return String Content.
+ */
+function scf_allow($role="", $content) {
+	$ret = do_shortcode($content);
+
+	if(!empty($role)) {
+		$roles = explode(",", $role);
+		$allowed = false;
+
+		// Check if user falls under any of supplied roles
+		foreach($roles as $r) {
+			$r = trim(strtolower($r));
+
+			// If user falls under any of the roles, allow the content
+			if(current_user_can($r)) {
+				$allowed = true;
+			}
+		}
+
+		if(!$allowed) {
+			$ret = "";
+		}
+	}
+
+	return $ret;
+}
