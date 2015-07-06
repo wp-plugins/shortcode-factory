@@ -15,7 +15,7 @@ function scf_load_ui(data) {
 			className: scf_ajax.i+"cbox",
 			html: resp,
 			open: true,
-			width: 500,
+			width: 700,
 			height: 400,
 			opacity: '0.7',
 			fixed: true
