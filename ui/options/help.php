@@ -34,3 +34,9 @@
 <p>Outputs attachments of the post<em> <span>(Custom Output / with Separator)</span></em>. If ID or Slug is provided, outputs the attachments of that particular post.</p>
 <h4><a href="http://wpscf.com/users-guide/scf-allow/" target="_blank">SCF-ALLOW</a></h4>
 <p>Displays selected content for specified role(s) only. If no role is specified, simply returns the content.</p>
+<h4><a href="http://wpscf.com/users-guide/scf-login-form/" target="_blank">SCF-LOGIN-FORM</a></h4>
+<p>Displays Word Press Login Form.</p>
+<h4><a href="http://wpscf.com/users-guide/scf-login-link/" target="_blank">SCF-LOGIN-LINK</a></h4>
+<p>Displays a login link, or if a user is logged in, displays a logout link.</p>
+<h4><a href="http://wpscf.com/users-guide/scf-register-link/" target="_blank">SCF-REGISTER-LINK</a></h4>
+<p>Displays either the "Site Admin" link if the user is logged in or "Register" link if the user is not logged in. </p>
