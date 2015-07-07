@@ -5,6 +5,7 @@
 
 	<p>Short codes are available for following purposes:</p>
 
+	<strong>Posts and Pages</strong>
 	<ul>
 		<li>Post ID</li>
 		<li>Post Title</li>
@@ -22,6 +23,18 @@
 		<li>Next Post (Custom Link Label, Position and Output Format)</li>
 		<li>Previous Post (Custom Link Label, Position and Output Format)</li>
 		<li>User Role Based Content Display</li>
+	</ul>
+
+	<strong>Users and Roles</strong>
+	<ul>
+		<li>User Role Based Content Display</li>
+	</ul>
+
+	<strong>Utility</strong>
+	<ul>
+		<li>Login Form</li>
+		<li>Login/Logout Link</li>
+		<li>Register/Site Admin Link</li>
 	</ul>
 
 	<p>See User's Guide at <a href="http://wpscf.com/users-guide/" target="_blank">http://wpscf.com/users-guide/</a></p>
