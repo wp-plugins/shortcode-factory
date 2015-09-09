@@ -40,6 +40,15 @@ $scf_builtin_shortcodes['scf-post-next'] = array('scf-post-next', 'scf_shortcode
 $scf_builtin_shortcodes['scf-post-prev'] = array('scf-post-prev', 'scf_shortcode_post_prev', __('Previous Post', 'shortcode-factory'), __('Prints link to the previous post.', 'shortcode-factory'), true);
 $scf_builtin_shortcodes['scf-post-attachments'] = array('scf-post-attachments', 'scf_shortcode_post_attachments', __('Post Attachments', 'shortcode-factory'), __('Prints post attachments.', 'shortcode-factory'), true);
 
+// Roles/Capabilities/User Permissions
+$scf_builtin_shortcodes['scf-allow'] = array('scf-allow', 'scf_shortcode_allow', __('Allow', 'shortcode-factory'), __('Allows content to specified roles.', 'shortcode-factory'), true);
+
+// Utility
+$scf_builtin_shortcodes['scf-login-form'] = array('scf-login-form', 'scf_login_form', __('Login Form', 'shortcode-factory'), __('Displays WordPress login form.', 'shortcode-factory'), false);
+$scf_builtin_shortcodes['scf-login-link'] = array('scf-login-link', 'scf_login_link', __('Login Link', 'shortcode-factory'), __('Displays a login link, or if a user is logged in, displays a logout link.', 'shortcode-factory'), false);
+$scf_builtin_shortcodes['scf-register-link'] = array('scf-register-link', 'scf_register_link', __('Register Link', 'shortcode-factory'), __('Displays either the "Site Admin" link if the user is logged in or "Register" link if the user is not logged in.', 'shortcode-factory'), false);
+
+
 add_action('init', 'scf_register_builtin_shortcodes');
 
 /* Shortcode Callbacks */
@@ -52,16 +61,18 @@ function scf_shortcode_post_id($atts) {
 	extract(
 		shortcode_atts(
 			array(
-				"slug" => ""
+				"slug" => "",
+				"output" => "raw",
+				"class" => "scf-post-id"
 			),
 			$atts, "scf_shortcode_post_id"
 		)
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "id");
+		return scf_format_output(scf_get_post($slug, "id"), $output, $class);
 	} else {
-		return get_the_ID();
+		return scf_format_output(get_the_ID(), $output, $class);
 	}
 }
 
@@ -74,16 +85,18 @@ function scf_shortcode_post_title($atts) {
 		shortcode_atts(
 			array(
 				"id" => "",
-				"slug" => ""
+				"slug" => "",
+				"output" => "raw",
+				"class" => "scf-post-title"
 			),
 			$atts, "scf_shortcode_post_title"
 		)
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug);
+		return scf_format_output(scf_get_post($slug), $output, $class);
 	} else {
-		return get_the_title($id);
+		return scf_format_output(get_the_title($id), $output, $class);
 	}
 }
 
@@ -96,18 +109,20 @@ function scf_shortcode_post_content($atts) {
 		shortcode_atts(
 			array(
 				"id" => "",
-				"slug" => ""
+				"slug" => "",
+				"output" => "raw",
+				"class" => "scf-post-content"
 			),
 			$atts, "scf_shortcode_post_content"
 		)
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "content");
+		return scf_format_output(scf_get_post($slug, "content"), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "content");
+		return scf_format_output(scf_get_post($id, "content"), $output, $class);
 	} else {
-		return get_the_content();
+		return scf_format_output(get_the_content(), $output, $class);
 	}
 }
 
@@ -120,18 +135,20 @@ function scf_shortcode_post_excerpt($atts) {
 		shortcode_atts(
 			array(
 				"id" => "",
-				"slug" => ""
+				"slug" => "",
+				"output" => "raw",
+				"class" => "scf-post-excerpt"
 			),
 			$atts, "scf_shortcode_post_excerpt"
 		)
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "excerpt");
+		return scf_format_output(scf_get_post($slug, "excerpt"), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "excerpt");
+		return scf_format_output(scf_get_post($id, "excerpt"), $output, $class);
 	} else {
-		return get_the_excerpt();
+		return scf_format_output(get_the_excerpt(), $output, $class);
 	}
 }
 
@@ -149,7 +166,9 @@ function scf_shortcode_post_meta($atts) {
 				"id" => "",
 				"slug" => "",
 				"type" => "post-date",
-				"format" => ""
+				"format" => "",
+				"output" => "raw",
+				"class" => "scf-post-meta"
 			),
 			$atts, "scf_shortcode_post_meta"
 		)
@@ -161,11 +180,11 @@ function scf_shortcode_post_meta($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "meta", $params);
+		return scf_format_output(scf_get_post($slug, "meta", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "meta", $params);
+		return scf_format_output(scf_get_post($id, "meta", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "meta", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "meta", $params), $output, $class);
 	}
 }
 
@@ -178,16 +197,18 @@ function scf_shortcode_post_permalink($atts) {
 		shortcode_atts(
 			array(
 				"id" => "",
-				"slug" => ""
+				"slug" => "",
+				"output" => "raw",
+				"class" => "scf-post-permalink"
 			),
 			$atts, "scf_shortcode_post_permalink"
 		)
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "permalink");
+		return scf_format_output(scf_get_post($slug, "permalink"), $output, $class);
 	} else {
-		return get_permalink($id);
+		return scf_format_output(get_permalink($id), $output, $class);
 	}
 }
 
@@ -202,7 +223,9 @@ function scf_shortcode_post_author($atts) {
 			array(
 				"id" => "",
 				"slug" => "",
-				"type" => "display_name"
+				"type" => "display_name",
+				"output" => "raw",
+				"class" => "scf-post-author"
 			),
 			$atts, "scf_shortcode_post_author"
 		)
@@ -213,11 +236,11 @@ function scf_shortcode_post_author($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "author", $params);
+		return scf_format_output(scf_get_post($slug, "author", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "author", $params);
+		return scf_format_output(scf_get_post($id, "author", $params), $output, $class);
 	} else {
-		return array_to_list(get_the_author_meta($type));
+		return scf_format_output(array_to_list(get_the_author_meta($type)), $output, $class);
 	}
 }
 
@@ -232,7 +255,9 @@ function scf_shortcode_post_image($atts) {
 				"id" => "",
 				"slug" => "",
 				"type" => "url",
-				"size" => "thumbnail"
+				"size" => "thumbnail",
+				"output" => "raw",
+				"class" => "scf-post-image"
 			),
 			$atts, "scf_shortcode_post_image"
 		)
@@ -244,11 +269,11 @@ function scf_shortcode_post_image($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "image", $params);
+		return scf_format_output(scf_get_post($slug, "image", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "image", $params);
+		return scf_format_output(scf_get_post($id, "image", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "image", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "image", $params), $output, $class);
 	}
 }
 
@@ -263,7 +288,9 @@ function scf_shortcode_post_field($atts) {
 				"id" => "",
 				"slug" => "",
 				"name" => "",
-				"separator" => ","
+				"separator" => ",",
+				"output" => "raw",
+				"class" => "scf-post-field"
 			),
 			$atts, "scf_shortcode_post_field"
 		)
@@ -275,11 +302,11 @@ function scf_shortcode_post_field($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "field", $params);
+		return scf_format_output(scf_get_post($slug, "field", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "field", $params);
+		return scf_format_output(scf_get_post($id, "field", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "field", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "field", $params), $output, $class);
 	}
 }
 
@@ -294,7 +321,9 @@ function scf_shortcode_post_category($atts) {
 				"id" => "",
 				"slug" => "",
 				"type" => "link",
-				"separator" => ","
+				"separator" => ",",
+				"output" => "raw",
+				"class" => "scf-post-category"
 			),
 			$atts, "scf_shortcode_post_category"
 		)
@@ -306,11 +335,11 @@ function scf_shortcode_post_category($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "category", $params);
+		return scf_format_output(scf_get_post($slug, "category", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "category", $params);
+		return scf_format_output(scf_get_post($id, "category", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "category", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "category", $params), $output, $class);
 	}
 }
 
@@ -325,7 +354,9 @@ function scf_shortcode_post_tag($atts) {
 				"id" => "",
 				"slug" => "",
 				"type" => "link",
-				"separator" => ","
+				"separator" => ",",
+				"output" => "raw",
+				"class" => "scf-post-tag"
 			),
 			$atts, "scf_shortcode_post_tag"
 		)
@@ -337,11 +368,11 @@ function scf_shortcode_post_tag($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "tag", $params);
+		return scf_format_output(scf_get_post($slug, "tag", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "tag", $params);
+		return scf_format_output(scf_get_post($id, "tag", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "tag", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "tag", $params), $output, $class);
 	}
 }
 
@@ -357,7 +388,9 @@ function scf_shortcode_post_taxonomy($atts) {
 				"slug" => "",
 				"taxonomy" => "",
 				"type" => "link",
-				"separator" => ","
+				"separator" => ",",
+				"output" => "raw",
+				"class" => "scf-post-taxonomy"
 			),
 			$atts, "scf_shortcode_post_taxonomy"
 		)
@@ -370,11 +403,11 @@ function scf_shortcode_post_taxonomy($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "taxonomy", $params);
+		return scf_format_output(scf_get_post($slug, "taxonomy", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "taxonomy", $params);
+		return scf_format_output(scf_get_post($id, "taxonomy", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "taxonomy", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "taxonomy", $params), $output, $class);
 	}
 }
 
@@ -388,14 +421,16 @@ function scf_shortcode_post_next($atts) {
 			array(
 				"label" => "",
 				"position" => "",
-				"type" => "link"
+				"type" => "link",
+				"output" => "raw",
+				"class" => "scf-post-next"
 			),
 			$atts, "scf_shortcode_post_next"
 		)
 	);
 
 	$next_post = get_adjacent_post(true, '', false);
-	$output = "";
+	$ret = "";
 
 	if(is_a($next_post, 'WP_Post')) {
 		$post_title = get_the_title($next_post->ID);
@@ -419,13 +454,13 @@ function scf_shortcode_post_next($atts) {
 		}
 
 		if($type == "link") {
-			$output = '<a href="'.get_permalink($next_post->ID).'">'.$label.'</a>';
+			$ret = scf_format_output('<a href="'.get_permalink($next_post->ID).'">'.$label.'</a>', $output, $class);
 		} else {
-			$output = get_permalink($next_post->ID);
+			$ret = scf_format_output(get_permalink($next_post->ID), $output, $class);
 		}
 	}
 
-	return $output;
+	return $ret;
 }
 
 /**
@@ -438,14 +473,16 @@ function scf_shortcode_post_prev($atts) {
 			array(
 				"label" => "",
 				"position" => "",
-				"type" => "link"
+				"type" => "link",
+				"output" => "raw",
+				"class" => "scf-post-prev"
 			),
 			$atts, "scf_shortcode_post_prev"
 		)
 	);
 
 	$prev_post = get_adjacent_post(true, '', true);
-	$output = "";
+	$ret = "";
 
 	if(is_a($prev_post, 'WP_Post')) {
 		$post_title = get_the_title($prev_post->ID);
@@ -469,17 +506,17 @@ function scf_shortcode_post_prev($atts) {
 		}
 
 		if($type == "link") {
-			$output = '<a href="'.get_permalink($prev_post->ID).'">'.$label.'</a>';
+			$ret = scf_format_output('<a href="'.get_permalink($prev_post->ID).'">'.$label.'</a>', $output, $class);
 		} else {
-			$output = get_permalink($prev_post->ID);
+			$ret = scf_format_output(get_permalink($prev_post->ID), $output, $class);
 		}
 	}
 
-	return $output;
+	return $ret;
 }
 
 /**
- * [scf-post-children] returns child posts of specified post.
+ * [scf-post-attachments] returns child posts of specified post.
  *
  */
 function scf_shortcode_post_attachments($atts) {
@@ -489,7 +526,9 @@ function scf_shortcode_post_attachments($atts) {
 				"id" => "",
 				"slug" => "",
 				"type" => "linktitle", // link, title, linktitle, id
-				"separator" => ","
+				"separator" => ",",
+				"output" => "raw",
+				"class" => "scf-post-attachments"
 			),
 			$atts, "scf_shortcode_post_attachments"
 		)
@@ -503,10 +542,57 @@ function scf_shortcode_post_attachments($atts) {
 	);
 
 	if(!empty($slug)) {
-		return scf_get_post($slug, "attachment", $params);
+		return scf_format_output(scf_get_post($slug, "attachment", $params), $output, $class);
 	} elseif(!empty($id)) {
-		return scf_get_post($id, "attachment", $params);
+		return scf_format_output(scf_get_post($id, "attachment", $params), $output, $class);
 	} else {
-		return scf_get_post(get_the_ID(), "attachment", $params);
+		return scf_format_output(scf_get_post(get_the_ID(), "attachment", $params), $output, $class);
 	}
+}
+
+/**
+ * [scf-allow] returns the encapsulated content for specified roles only.
+ *
+ * This short code requires a closing. i.e. [scf-allow {params}]...[/scf-allow]
+ *
+ */
+function scf_shortcode_allow($atts, $content) {
+	extract(
+		shortcode_atts(
+			array(
+				"role" => ""	// comma separated list of roles
+			),
+			$atts, "scf_shortcode_allow"
+		)
+	);
+
+	$params = array(
+		"role" => $role
+	);
+
+	return scf_allow($role, $content);
+}
+
+/**
+ * [scf-login-form] displays the WordPress login form.
+ *
+ */
+function scf_login_form() {
+	return wp_login_form(array('echo' => false));
+}
+
+/**
+ * [scf-login-link] Displays a login link, or if a user is logged in, displays a logout link.
+ *
+ */
+function scf_login_link() {
+	return wp_loginout(null, false);
+}
+
+/**
+ * [scf-register-link] Displays either the "Site Admin" link if the user is logged in or "Register" link if the user is not logged in.
+ *
+ */
+function scf_register_link() {
+	return wp_register('', '', false);
 }

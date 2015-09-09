@@ -3,7 +3,7 @@
 Plugin Name: Shortcode Factory
 Plugin URI: http://wordpress.org/plugins/shortcode-factory
 Description: Create short codes for almost everything in the Word Press and use in Pages, Posts or anywhere.
-Version: 1.1.1
+Version: 1.5
 Author: WPMadeasy
 Author URI: http://wpmadeasy.com
 Text Domain: shortcode-factory
@@ -26,6 +26,7 @@ define('SCF_URL', plugin_dir_url( __FILE__ ));
 // Core
 require SCF_CORE.'/constants.php';
 require SCF_CORE.'/functions.php';
+require SCF_CORE.'/options.php';
 require SCF_CORE.'/shortcodes.php';
 require SCF_LIB.'/common.php';
 
