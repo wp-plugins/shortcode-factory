@@ -4,7 +4,7 @@ Donate link: http://wpscf.com/
 Tags: short codes, posts, pages, utility
 Requires at least: 3.5
 Tested up to: 4.3
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,11 +12,11 @@ Create short codes for almost everything in the Word Press and use in Pages, Pos
 
 == Description ==
 
-<h4>WHAT's NEW in v1.4</h4>
+<h4>WHAT's NEW in v1.5</h4>
 
-* <strong>[scf-login-form]</strong> Displays WordPress login form.
-* <strong>[scf-login-link]</strong> Displays a login link, or if a user is logged in, displays a logout link.
-* <strong>[scf-register-link]</strong> Displays either the "Site Admin" link if the user is logged in or "Register" link if the user is not logged in.
+* <strong>New Attributes</strong> to support HTML Output Tag and apply CSS Classes.
+* <strong>'output'</strong> attribute lets you wrap the output of short code in an HTML tag. i.e. output="p" will wrap the output of a short code in HTML Paragraph tag.
+* <strong>'class'</strong> attribute lets you add the CSS Class(es) to the wrapping tag. i.e. class="my-posts" - default is short code name.
 
 Shortcode Factory offers a wide range of ready-to-use short codes for your daily WordPress operations. There are plenty of short codes available at hand. We have tried to bring most common to most wanted features of WordPress, to these short codes.
 
@@ -85,6 +85,11 @@ Although, we have tested it in very much detail. But technically, it shouldn’t
 
 == Changelog ==
 
+= 1.5 =
+* New attributes (output and class) to support HTML Output Tag and apply CSS Classes.
+* Added attributes support in plugin UI.
+* Some performance improvements.
+
 = 1.4 =
 * New short code: [scf-login-form] to display WordPress login form.
 * New short code: [scf-login-link] to display a login link, or if a user is logged in, displays a logout link.
@@ -126,3 +131,6 @@ Upgrade to version 1.3 for new short code: [scf-allow]. See change log for more 
 
 = 1.4 =
 Upgrade to version 1.4 for new short codes: [scf-login-form], [scf-login-link] and [scf-register-link]. See change log for more details.
+
+= 1.5 =
+Upgrade to version 1.5 for new supported attributes in short codes. See change log for more details.

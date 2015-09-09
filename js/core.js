@@ -8,6 +8,22 @@ jQuery(document).ready(function($){
 	});
 });
 
+function scf_hook_output_change() {
+	// Ver 1.5
+	jQuery("#scf-control-output").on("change", function(){
+		var v = jQuery(this).val();
+
+		if(v == "other") {
+			jQuery(".scf-opt-y").show();
+			jQuery("input.scf-opt-y").focus();
+		} else {
+			jQuery("input.scf-opt-y").val("");
+			jQuery(".scf-opt-y").hide();
+		}
+
+	});
+}
+
 function scf_load_ui(data) {
 	jQuery.get(scf_ajax.url, data, function(resp){
 		jQuery.colorbox({

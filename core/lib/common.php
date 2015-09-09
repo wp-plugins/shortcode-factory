@@ -93,55 +93,55 @@ function scf_get_post($post_slug_or_id, $return_data="title", $params=array()) {
 
 			case "category":
 				$categories = get_the_category($post_id);
-				$output = array();
+				$out = array();
 
 				if($categories) {
 					foreach($categories as $category) {
 						if($type == "link") {
-							$output[] = '<a href="'.get_category_link($category->term_id).'">'.$category->name.'</a>';
+							$out[] = '<a href="'.get_category_link($category->term_id).'">'.$category->name.'</a>';
 						} else {
-							$output[] = $category->name;
+							$out[] = $category->name;
 						}
 					}
 				}
 
-				$data = array_to_list($output, $separator);
+				$data = array_to_list($out, $separator);
 				break;
 
 			case "tag":
 				$tags = get_the_terms($post_id, "post_tag");
-				$output = array();
+				$out = array();
 
 				if($tags) {
 					foreach($tags as $tag) {
 
 						if($type == "link") {
-							$output[] = '<a href="'.get_term_link($tag).'">'.$tag->name.'</a>';
+							$out[] = '<a href="'.get_term_link($tag).'">'.$tag->name.'</a>';
 						} else {
-							$output[] = $tag->name;
+							$out[] = $tag->name;
 						}
 					}
 				}
 
-				$data = array_to_list($output, $separator);
+				$data = array_to_list($out, $separator);
 				break;
 
 			case "taxonomy":
 				$terms = get_the_terms($post_id, $taxonomy);
-				$output = array();
+				$out = array();
 
 				if($terms) {
 					foreach($terms as $term) {
 
 						if($type == "link") {
-							$output[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+							$out[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
 						} else {
-							$output[] = $term->name;
+							$out[] = $term->name;
 						}
 					}
 				}
 
-				$data = array_to_list($output, $separator);
+				$data = array_to_list($out, $separator);
 				break;
 
 			case "attachment":
@@ -152,25 +152,25 @@ function scf_get_post($post_slug_or_id, $return_data="title", $params=array()) {
 					)
 				);
 
-				$output = array();
+				$out = array();
 				$childId = 0;
 
 				foreach($children as $child) {
 					$childId = $child->ID;
 
 					if($type == "link") {
-						$output[] = get_permalink($childId);
+						$out[] = get_permalink($childId);
 					} elseif($type == "title") {
-						$output[] = get_the_title($childId);
+						$out[] = get_the_title($childId);
 					} elseif($type == "id") {
-						$output[] = $childId;
+						$out[] = $childId;
 					} else { // linktitle
-						$output[] = '<a href="'.get_permalink($childId).'">'.get_the_title($childId).'</a>';
+						$out[] = '<a href="'.get_permalink($childId).'">'.get_the_title($childId).'</a>';
 					}
 				}
 
 
-				$data = array_to_list($output, $separator);
+				$data = array_to_list($out, $separator);
 				break;
 
 	    	default:
@@ -258,4 +258,21 @@ function scf_allow($role="", $content) {
 	}
 
 	return $ret;
+}
+
+function scf_format_output($content, $type="raw", $class="scf-shortcode") {
+	$ret = $content;
+
+	if($type != "raw") {
+		$type = scf_sanitize_output_tag($type);
+		$ret = '<'.$type.' class="'.$class.'">'.$content.'</'.$type.'>';
+	}
+
+	return $ret;
+}
+
+function scf_sanitize_output_tag($tag) {
+	$invalidChars = array(" ", ",", "<", ">", "&lt;", "&gt;", "/");
+
+	return str_ireplace($invalidChars, "", $tag);
 }
